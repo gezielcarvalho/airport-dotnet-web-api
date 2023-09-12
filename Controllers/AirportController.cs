@@ -45,5 +45,34 @@ namespace DotNetWebApi.Controllers
             // get uri from inserted airport
             return CreatedAtAction(nameof(Get), new { id = airport.Id }, airport);
         }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult> Update(int id, Airport airport)
+        {
+            if (id != airport.Id)
+            {
+                return BadRequest();
+            }
+            var airportToUpdate = airports.Find(a => a.Id == id);
+            if (airportToUpdate == null)
+            {
+                return NotFound();
+            }
+            airports.Remove(airportToUpdate);
+            airports.Add(airport);
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> Delete(int id)
+        {
+            var airport = airports.Find(a => a.Id == id);
+            if (airport == null)
+            {
+                return NotFound();
+            }
+            airports.Remove(airport);
+            return NoContent();
+        }
     }
 }
