@@ -3,6 +3,7 @@ using DotNetWebApi.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Any;
 
 namespace DotNetWebApi.Controllers
 {
@@ -36,6 +37,15 @@ namespace DotNetWebApi.Controllers
         {
             return Ok(await _context.Airports.ToListAsync());
         }
+
+        [HttpGet]
+        [Route("/test")]
+        public ActionResult<AnyType> GetTest()
+        {
+            var message = new OpenApiString("Hello World");
+            return Ok(message);
+        }
+
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Airport>> Get(int id)
