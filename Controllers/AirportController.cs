@@ -1,6 +1,5 @@
 ﻿using DotNetWebApi.Data;
 using DotNetWebApi.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Any;
@@ -17,20 +16,6 @@ namespace DotNetWebApi.Controllers
         {
             _context = context;
         }
-
-        private static List<Airport> airports = new List<Airport>
-            {
-                new Airport {
-                    Id = 1,
-                    Name = "Ratanaba International",
-                    AirportType = "Public",
-                    City = "Ratanaba/MT Brazil",
-                    Coordinates = "-8.134411, -57.896092",
-                    TimeZone= -3,
-                    Website= "https://pt.wikipedia.org/wiki/Ratanab%C3%A1"
-                }
-        };
-
 
         [HttpGet]
         public async Task<ActionResult<List<Airport>>> Get()
