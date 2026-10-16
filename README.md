@@ -2,6 +2,15 @@
 
 A .NET 6.0 Web API for managing airport data with Entity Framework Core and SQL Server.
 
+> **Repository status:** historical API learning project retained as a reference. It is not an actively supported airport-management service or production deployment.
+
+## Documentation
+
+- [Current-state overview](docs/README.md)
+- [Project charter](docs/project-charter.md)
+- [Architecture and boundaries](docs/architecture.md)
+- [Delivery and quality handoff](docs/delivery-and-quality.md)
+
 ## Features
 
 - RESTful API endpoints for airport management
